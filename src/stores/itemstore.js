@@ -34,4 +34,3 @@ const fetchitems = async() => {
     items.set(loadeditems);
 }
 fetchitems();
-console.log(tempitems);
