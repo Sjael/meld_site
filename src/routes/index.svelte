@@ -1,59 +1,76 @@
 <script context="module" lang="ts">
 	export const prerender = true;
 </script>
+<script>
+    import {items} from "../stores/itemstore";
+    import Itemgrid from "$lib/components/itemgrid.svelte";
+    import Itemtile from "$lib/components/itemtile.svelte";
+    import Icon from "$lib/components/icons.svelte"
 
-<script lang="ts">
-	import Counter from '$lib/Counter.svelte';
+
 </script>
 
 <svelte:head>
-	<title>Home</title>
+    <title>Meld</title>
 </svelte:head>
-
-<section>
-	<h1>
-		<div class="welcome">
-			<picture>
-				<source srcset="svelte-welcome.webp" type="image/webp" />
-				<img src="svelte-welcome.png" alt="Welcome" />
-			</picture>
-		</div>
-
-		to your new<br />SvelteKit app
-	</h1>
-
-	<h2>
-		try editing <strong>src/routes/index.svelte</strong>
-	</h2>
-
-	<Counter />
-</section>
+<div class="wrap">
+    <h1 class="text-6xl text-center">Lotus Stone
+    </h1>
+    <figure class="center-figure">
+        <img src="map_shot1.png" alt="" style="max-height:300px;border-radius:6px;"/>
+    </figure>
+    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
+        when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
+        It has survived not only five centuries, but also the leap into electronic typesetting, 
+        remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset 
+        sheets containing Lorem Ipsum passages, 
+        and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+    <div>
+        <Itemgrid />
+    </div>
+    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
+        when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
+        It has survived not only five centuries, but also the leap into electronic typesetting, 
+        remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset 
+        sheets containing Lorem Ipsum passages, 
+        and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+    
+</div>
 
 <style>
-	section {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		flex: 1;
-	}
+    .center-figure{
+        width: 100% !important;
+        display: flex;
+    }
 
-	h1 {
-		width: 100%;
-	}
+    .center-figure img{
+        margin-left:auto;
+        margin-right:auto;
+    }
 
-	.welcome {
-		position: relative;
-		width: 100%;
-		height: 0;
-		padding: 0 0 calc(100% * 495 / 2048) 0;
-	}
+    .wrap{
+        max-width: 800px;
+        margin: 0 auto;
+        padding-top:40px;
+    }
 
-	.welcome img {
-		position: absolute;
-		width: 100%;
-		height: 100%;
-		top: 0;
-		display: block;
-	}
+    .wrap > *{
+        margin-bottom:36px;
+    }
+
+    .tooltipthing{
+        position:absolute;
+        pointer-events: none;
+    }
+
+    .tooltipthing img{
+        position:absolute;
+        left: 0;
+        top:0;
+        height: 64px;
+        width: 64px;
+        transform: translate(-110%, 0%)
+    }
 </style>
