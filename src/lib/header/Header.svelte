@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { page } from '$app/stores';
-	import logo from './svelte-logo.svg';
+	import logo from './logo.svg';
 </script>
 
 <header>
@@ -40,7 +40,7 @@
 	}
 
 	.corner {
-		width: 3em;
+		width: 6em;
 		height: 3em;
 	}
 
@@ -53,8 +53,8 @@
 	}
 
 	.corner img {
-		width: 2em;
-		height: 2em;
+		width: 4em;
+		height: 3em;
 		object-fit: contain;
 	}
 
