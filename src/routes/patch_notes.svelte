@@ -194,8 +194,9 @@
         padding:8px;
         border-radius:3px;
         background:#eee;
-        font-size:14px;
+        font-size:12px;
         text-transform:uppercase;
+        letter-spacing:1px;
     }
 
     #hide_quotes:hover{
