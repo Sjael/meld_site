@@ -40,6 +40,12 @@
                 <Icon name="arrow-right" /> 
                 <span class="red">12</span>
             </p>
+            <p>
+                <span class="bullet">Mana cost</span> 
+                <s>80</s>
+                <Icon name="arrow-right" /> 
+                <span class="red">100</span>
+            </p>
         </div>
         <div class="sub-note pad">
             
@@ -154,7 +160,7 @@
     }
 
     section > div:not(:first-child){
-        padding-top:40px;
+        padding-top:45px;
     }
 
     section > div{
@@ -230,11 +236,11 @@
         font-weight:bold;
     }
 
-    
+    .sub-note p{
+    }
 
     p span{
         color:#000;
-        margin: auto 5px auto 5px;
         padding:auto -5px auto -5px;
         font-weight:bold;
     }
@@ -243,6 +249,8 @@
         text-transform: uppercase;
         font-weight:normal;
         color:rgba(0,0,0,0.7);
+        font-size: 12px;
+        letter-spacing:1px;
     }
 
     p span.green{
