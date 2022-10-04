@@ -153,6 +153,10 @@
         border-bottom: 1px solid rgba(127, 127, 127, 0.5);
     }
 
+    section > div:not(:first-child){
+        padding-top:40px;
+    }
+
     section > div{
         padding: 20px 0px 20px 0px;
     }
