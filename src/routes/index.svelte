@@ -14,8 +14,9 @@
     <title>Meld</title>
 </svelte:head>
 <div class="wrap">
-    <h1 class="text-6xl text-center">Lotus Stone
-    </h1>
+    <figure class="center-figure">
+        <img src="logo-export.png" alt="" style=""/>
+    </figure>
     <figure class="center-figure">
         <img src="map_shot1.png" alt="" style="max-height:300px;border-radius:6px;"/>
     </figure>
@@ -51,7 +52,6 @@
     }
 
     .wrap{
-        max-width: 800px;
         margin: 0 auto;
         padding-top:40px;
     }
