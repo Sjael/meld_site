@@ -2,11 +2,28 @@
     import {items} from "../stores/itemstore";
     import Icon from "$lib/components/icons.svelte"
 
+    let quote_showing = false;
+
 </script>
 
 <svelte:head>
     <title>Patch Notes</title>
 </svelte:head>
+
+<div class="sidebar">
+    <div class="sticky">
+        <ul>
+            <li><a href="/patch_notes?v=1.3">1.3</a></li>
+            <li><a href="/patch_notes?v=1.2">1.2</a></li>
+        </ul>
+        <ul>
+            <li><a href="#chars-head">Gods</a></li>
+            <li><a href="#items-head">Items</a></li>
+        </ul>
+        <button id="hide_quotes" on:click={() => {quote_showing = !quote_showing}}>Show <Icon name="quote" /> </button>
+    </div>
+</div>
+
 
 <h1>1.3 Into Cinder</h1>
 <div class="timeline"></div>
@@ -18,17 +35,18 @@
         Genjiman Genji, and more. 
         Earn weekly rewards and play all your favorite seasonal brawls for the final time before the launch of Overwatch 2!</p>
 </div>
-<h5>Gods</h5>
-<section class="chars">
+<h5 id="chars-head">Gods</h5>
+<section id="chars">
     <div>
         <div class="image-head">
             <img src="nemesis.jpg" alt="" class="char-icon"/>
             <h2>Nemesis</h2>
-            <p class="quote">This goddess has continued to be a top Jungler even with a nerf to her Ultimate earlier this year. 
+            <p class="quote" class:shown={quote_showing}>This goddess has continued to be a top Jungler even with a nerf to her Ultimate earlier this year. 
                 Divine Judgment is especially strong in a world where gods have higher base HP, and her pace in the 
                 Jungle has remained at the top of the pack. Both of these changes should decrease her overall 
                 damage output and slow her down to be a closer match to the rest of the class.</p>
         
+            
         </div>    
         <div class="sub-note pad">
             
@@ -64,7 +82,7 @@
         <div class="image-head">
             <img src="nuwa.png" alt="" class="char-icon"/>
             <h2>Nu Wa</h2>
-            <p class="quote">She needs to be OP at least one patch.</p>
+            <p class="quote" class:shown={quote_showing}>She needs to be OP at least one patch.</p>
         
         </div>    
         <div class="sub-note pad">
@@ -92,8 +110,8 @@
         </div>
     </div>
 </section>
-<h5>Items</h5>
-<section class="items">
+<h5 id="items-head">Items</h5>
+<section id="items">
     <div>
         <div class="image-head">
             <img src="stonecutting.png" alt="" class="char-icon"/>
@@ -135,9 +153,50 @@
 </section>
 
 <style>
+    .sidebar{
+        position:absolute;
+        left:0;
+        padding-top:200px;
+        transform: translateX(-110%);
+        height:100%;
+    }
+    .sticky{
+        position:sticky;
+        top:50px;
+    }
+
+    .sidebar ul{
+        padding-bottom:30px;
+    }
+
+    .sidebar li{
+        text-align:right;
+        padding-bottom:10px;
+    }
+
+    .sidebar a{
+        color:#777;
+        text-transform: uppercase;
+        font-size:14px;
+        letter-spacing:1px;
+    }
+    .sidebar a:hover{
+        color:#e09162;
+    }
+
+
+    #hide_quotes{
+        padding:8px;
+        border-radius:3px;
+        background:#eee;
+        font-size:14px;
+        text-transform:uppercase;
+    }
+
     *{
         font-family:'PT Sans';
     }
+
 
     h1{
         text-align:left;
@@ -187,6 +246,7 @@
         font-style:italic;
         padding-left:10px;
         padding-top:20px;
+        display:none;
     }
 
     .quote:before{
@@ -195,9 +255,13 @@
         font-style:normal;
     }
 
+    .quote.shown{
+        display:block;
+    }
 
 
-    .items .sub-note p{
+
+    #items .sub-note p{
         margin-bottom:10px;
     }
 
