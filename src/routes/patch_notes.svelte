@@ -165,6 +165,11 @@
         top:50px;
     }
 
+    .sidebar ul:first-child a{
+        font-size: 20px;
+        color:#888;
+    }
+
     .sidebar ul{
         padding-bottom:30px;
     }
@@ -175,12 +180,12 @@
     }
 
     .sidebar a{
-        color:#777;
+        color:#ccc;
         text-transform: uppercase;
         font-size:14px;
         letter-spacing:1px;
     }
-    .sidebar a:hover{
+    .sidebar ul a:hover{
         color:#e09162;
     }
 
@@ -191,6 +196,10 @@
         background:#eee;
         font-size:14px;
         text-transform:uppercase;
+    }
+
+    #hide_quotes:hover{
+        background:#e5e5e5;
     }
 
     *{
