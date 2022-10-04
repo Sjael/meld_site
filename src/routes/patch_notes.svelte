@@ -21,8 +21,8 @@
 <h5>Gods</h5>
 <section class="chars">
     <div>
-        <div class="image-head pad">
-            <img src="nemesis.jpg" class="char-icon"/>
+        <div class="image-head">
+            <img src="nemesis.jpg" alt="" class="char-icon"/>
             <h2>Nemesis</h2>
             <p class="quote">This goddess has continued to be a top Jungler even with a nerf to her Ultimate earlier this year. 
                 Divine Judgment is especially strong in a world where gods have higher base HP, and her pace in the 
@@ -32,20 +32,22 @@
         </div>    
         <div class="sub-note pad">
             
-            <img src="slice-and-dice.png" class="char-icon"/>
-            <h3>SLICE AND DICE</h3>
+            <img src="slice-and-dice.png" alt="" class="char-icon"/>
+            <h3>Slice and Dice</h3>
             <p>
-                COOLDOWN <span>11</span>
+                <span class="bullet">Cooldown</span> 
+                <s>11</s>
                 <Icon name="arrow-right" /> 
                 <span class="red">12</span>
             </p>
         </div>
         <div class="sub-note pad">
             
-            <img src="divine-judgement.png" class="char-icon"/>
-            <h3>DIVINE JUDGEMENT</h3>
-            <p>        
-                PERCENT DAMAGE <s>20/22.5/25/27.5/30%</s>         
+            <img src="divine-judgement.png" alt="" class="char-icon"/>
+            <h3>Divine Judgement</h3>
+            <p>                        
+                <span class="bullet">PERCENT DAMAGE</span> 
+                <s>20/22.5/25/27.5/30%</s>         
                 <Icon name="arrow-right" /> 
                 <span class="green">25/27.5/30/32.5/35%</span> of current HP
             </p>
@@ -53,18 +55,19 @@
         </div>
     </div>
     <div>
-        <div class="image-head pad">
-            <img src="nuwa.png" class="char-icon"/>
+        <div class="image-head">
+            <img src="nuwa.png" alt="" class="char-icon"/>
             <h2>Nu Wa</h2>
             <p class="quote">She needs to be OP at least one patch.</p>
         
         </div>    
         <div class="sub-note pad">
             
-            <img src="shining_metal.png" class="char-icon"/>
+            <img src="shining_metal.png" alt="" class="char-icon"/>
             <h3>Shining Metal</h3>
-            <p>        
-                STUN DURATION <s>1.1/1.2/1.3/1.4/1.5s</s>         
+            <p>     
+                <span class="bullet">Stun Duration</span>   
+                <s>1.1/1.2/1.3/1.4/1.5s</s>         
                 <Icon name="arrow-right" /> 
                 <span class="green">1.2/1.4/1.6/1.8/2.0s</span>
             </p>
@@ -72,10 +75,11 @@
         </div>
         <div class="sub-note pad">
             
-            <img src="fire_shards.png" class="char-icon"/>
+            <img src="fire_shards.png" alt="" class="char-icon"/>
             <h3>Clay Soldiers</h3>
             <p>
-                COOLDOWN <span>100</span>
+                <span class="bullet">Cooldown </span>
+                <s>100</s>
                 <Icon name="arrow-right" /> 
                 <span class="red">110</span>
             </p>
@@ -86,13 +90,14 @@
 <section class="items">
     <div>
         <div class="image-head">
-            <img src="stonecutting.png" class="char-icon"/>
+            <img src="stonecutting.png" alt="" class="char-icon"/>
             <h2>Stone Cutting Sword</h2>
             
         </div>    
         <div class="sub-note">
             <p>
-                PROT DEBUFF <span>12</span>
+                <span class="bullet">Prot Debuff</span> 
+                <s>12</s>
                 <Icon name="arrow-right" /> 
                 <span class="red">10</span>
             </p>
@@ -100,13 +105,14 @@
     </div>
     <div>
         <div class="image-head">
-            <img src="hydras.png" class="char-icon"/>
+            <img src="hydras.png" alt="" class="char-icon"/>
             <h2>Hydra's Lament</h2>
             
         </div>    
         <div class="sub-note">
             <p>
-                BONUS DAMAGE <span>40%</span>
+                <span class="bullet">Bonus Damage</span>
+                <s>40%</s>
                 <Icon name="arrow-right" /> 
                 <span class="red">10%</span>
             </p>
@@ -114,7 +120,8 @@
         <div class="sub-note">
             <span class="tag">NEW</span>
             <p>
-                CRIT MACHINE <span> After every ability cast, your next AA is a guaranteed crit.</span>
+                <span class="bullet">CRIT MACHINE</span>
+                <span> After every ability cast, your next AA is a guaranteed crit.</span>
     
             </p>
         </div>
@@ -160,6 +167,7 @@
         letter-spacing: 4px;
         text-transform:uppercase;
         margin-top:60px;
+        margin-bottom:30px;
     }
 
     .quote{
@@ -216,7 +224,6 @@
     .sub-note > h3{
         font-size:20px;
         font-weight:bold;
-        text-transform: uppercase;
     }
 
     
@@ -226,6 +233,12 @@
         margin: auto 5px auto 5px;
         padding:auto -5px auto -5px;
         font-weight:bold;
+    }
+
+    p .bullet{
+        text-transform: uppercase;
+        font-weight:normal;
+        color:rgba(0,0,0,0.7);
     }
 
     p span.green{
