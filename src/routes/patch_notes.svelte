@@ -183,10 +183,14 @@
         margin-bottom:10px;
     }
 
-    .image-head img{
+    .image-head{
+        position:relative;
+    }
+    .image-head > img{
         width:64px;
         height:64px;
         position: absolute;
+        top: 5px;
     }
 
     .image-head > h2{
@@ -225,11 +229,11 @@
     }
 
     p span.green{
-        background:url("highlight-02.svg");
+        background:var(--highlight-green);
     }
 
     p span.red{
-        background:url("highlight-03.svg");
+        background:var(--highlight-red);
     }
 
     p s{
