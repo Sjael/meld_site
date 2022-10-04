@@ -190,7 +190,6 @@
         width:64px;
         height:64px;
         position: absolute;
-        top: 5px;
     }
 
     .image-head > h2{
