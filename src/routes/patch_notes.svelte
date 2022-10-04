@@ -20,10 +20,13 @@
             <li><a href="#chars-head">Gods</a></li>
             <li><a href="#items-head">Items</a></li>
         </ul>
+       </div>
+</div>
+<div class="sidebar right">
+    <div class="sticky">
         <button id="hide_quotes" on:click={() => {quote_showing = !quote_showing}}>Show <Icon name="quote" /> </button>
     </div>
 </div>
-
 
 <h1>1.3 Into Cinder</h1>
 <div class="timeline"></div>
@@ -159,6 +162,12 @@
         padding-top:200px;
         transform: translateX(-110%);
         height:100%;
+    }
+    .sidebar.right{        
+        transform: translateX(100%);
+        padding-top:205px;
+        right:0;
+        left:auto;
     }
     .sticky{
         position:sticky;

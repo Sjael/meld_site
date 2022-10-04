@@ -24,8 +24,8 @@
 	const leave = () => (hovering = false);
 
     function handleMousemove(event) {
-		m.x = event.clientX;
-		m.y = event.clientY;
+		m.x = event.pageX;
+		m.y = event.pageY;
 	}
     const hover_item = (e) => {
         hovering = true;
