@@ -47,7 +47,7 @@
             <p>        
                 PERCENT DAMAGE <s>20/22.5/25/27.5/30%</s>         
                 <Icon name="arrow-right" /> 
-                <span class="green">15/17.5/20/22.5/25%</span> of current HP
+                <span class="green">25/27.5/30/32.5/35%</span> of current HP
             </p>
             
         </div>
@@ -216,6 +216,7 @@
     .sub-note > h3{
         font-size:20px;
         font-weight:bold;
+        text-transform: uppercase;
     }
 
     
