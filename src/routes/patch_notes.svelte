@@ -1,13 +1,100 @@
 <script>
-    import {items} from "../stores/itemstore";
     import Icon from "$lib/components/icons.svelte"
 
     let quote_showing = false;
+    const non_cap_words = ['and', 'or', 'the', 'of']
+    
+    function unslug(slug){
+        slug = slug.replaceAll('_', ' ');
+        slug = slug.replaceAll('-', ' ');
+        var text = slug
+            .split(' ')
+            .map(function(s) { 
+                if (!non_cap_words.includes(s)){
+                    s = s.charAt(0).toUpperCase() + s.substring(1)
+                }
+                return s;
+            })
+            .join(' ');
+        return text;
+    }
+
+    var attr_flip = [
+        "cooldown", "mana cost"
+    ];
+
+    var characters = [{
+        "char": "nemesis",
+        "quote": "This goddess has continued to be a top Jungler even with a nerf to her Ultimate earlier this year. Divine Judgment is especially strong in a world where gods have higher base HP, and her pace in the Jungle has remained at the top of the pack. Both of these changes should decrease her overall damage output and slow her down to be a closer match to the rest of the class.",
+        "changes": [{
+            "ability": "slice_and_dice",
+            "bullets" :[{
+                "attr": "cooldown",
+                "old": "11",
+                "new": "12"
+                },{
+                "attr": "mana cost",
+                "old": "80",
+                "new": "100"
+                }]
+            },{
+            "ability": "divine_judgement",
+            "bullets" :[{
+                "attr": "percent damage",
+                "old": "20/22.5/25/27.5/30%",
+                "new": "25/27.5/30/32.5/35% of current HP"
+                }]
+            }]       
+    },{
+        "char": "nu_wa",
+        "quote": "She needs to be OP at least one patch.",
+        "changes": [{
+            "ability": "shining_metal",
+            "bullets" :[{
+                "attr": "stun duration",
+                "old": "1.1/1.2/1.3/1.4/1.5s",
+                "new": "1.2/1.4/1.6/1.8/2.0s"
+                },{
+                "attr": "mana cost",
+                "old": "40",
+                "new": "70"
+                }]
+            },{
+            "ability": "fire_shards",
+            "bullets" :[{
+                "attr": "cooldown",
+                "old": "100",
+                "new": "110"
+                }]
+            }]    
+    }];
+    var items = [{
+        "item": "stone_cutting_sword",
+        "quote": "This shit was too bussin' fr",
+        "bullets" :[{
+            "attr": "prot debuff",
+            "old": "12",
+            "new": "10"
+            }]      
+    },{
+        "item": "hydras_lament",
+        "quote": "plz",
+        "bullets" :[{
+            "attr": "bonus damage",
+            "old": "40%",
+            "new": ""
+            },{
+            "attr": "crit machine",
+            "old": "",
+            "new": "After casting an ability, your next auto attack is a guarenteed critical strike."
+            }]                 
+    }];
+
 
 </script>
 
 <svelte:head>
-    <title>Patch Notes</title>
+    <title>LS 1.3</title>
 </svelte:head>
 
 <div class="sidebar">
@@ -15,15 +102,18 @@
         <ul>
             <li><a href="/patch_notes?v=1.3">1.3</a></li>
             <li><a href="/patch_notes?v=1.2">1.2</a></li>
-        </ul>
-        <ul>
-            <li><a href="#chars-head">Gods</a></li>
-            <li><a href="#items-head">Items</a></li>
+            <li><a href="/patch_notes?v=1.2">1.1</a></li>
+            <li><a href="/patch_notes?v=1.2">1.02</a></li>
+            <li><a href="/patch_notes?v=1.2">1.0</a></li>
         </ul>
        </div>
 </div>
 <div class="sidebar right">
     <div class="sticky">
+        <ul>
+            <li><a href="#chars-head">Gods</a></li>
+            <li><a href="#items-head">Items</a></li>
+        </ul>
         <button id="hide_quotes" on:click={() => {quote_showing = !quote_showing}}>Show <Icon name="quote" /> </button>
     </div>
 </div>
@@ -32,127 +122,85 @@
 <div class="timeline"></div>
 
 <div class="explanation pad">
-    <p>After six great years of payload pushing and high-intensity brawls around the world, 
-        the fight for the future is just beginning. Now, as we prepare to enter a new era of epic competition, 
-        it’s time for one last hurrah. Join the party in style with remixed skins Tagged Tracer, Varsity D.Va, 
-        Genjiman Genji, and more. 
-        Earn weekly rewards and play all your favorite seasonal brawls for the final time before the launch of Overwatch 2!</p>
+    <p>The first bonus update for Mid Season 9 is ready to go! The most important change to the new mid season items are the bug fixes. Sphinx’s Bauble is going to be back and will be closely watched for possible balance changes in the second bonus update coming 2 weeks later. Looking beyond the new content, we set our sights on Warrior Junglers. These are still overperforming and thus pushing many Assassins out of the viable god pool, so we are stacking some specific nerfs across the top gods and items in this archetype. Hopefully we will see Erlang Shen and Osiris drop in their prioritization in SPL and make room for more gods in that role.</p>
 </div>
 <h5 id="chars-head">Gods</h5>
 <section id="chars">
+    {#each characters as char}
     <div>
         <div class="image-head">
-            <img src="nemesis.jpg" alt="" class="char-icon"/>
-            <h2>Nemesis</h2>
-            <p class="quote" class:shown={quote_showing}>This goddess has continued to be a top Jungler even with a nerf to her Ultimate earlier this year. 
-                Divine Judgment is especially strong in a world where gods have higher base HP, and her pace in the 
-                Jungle has remained at the top of the pack. Both of these changes should decrease her overall 
-                damage output and slow her down to be a closer match to the rest of the class.</p>
-        
-            
+            <img src="chars/{char["char"]}.png" alt="" class="char-icon"/>
+            <h2>{unslug(char["char"])}</h2>
+            <p class="quote" class:shown={quote_showing}>{char["quote"]}</p>   
         </div>    
+        {#each char["changes"] as change}
         <div class="sub-note pad">
-            
-            <img src="slice-and-dice.png" alt="" class="char-icon"/>
-            <h3>Slice and Dice</h3>
+
+            <img src="chars/{change["ability"]}.png" alt="" class="char-icon"/>
+            <h3>{unslug(change["ability"])}</h3>
+            {#each change["bullets"] as bullet}
             <p>
-                <span class="bullet">Cooldown</span> 
-                <s>11</s>
+                {#if bullet["old"] == ""}
+                <span class="tag new">new</span>
+                {/if}
+                {#if bullet["new"] == ""}
+                <span class="tag removed">removed</span>
+                {/if}
+                <span class="bullet">{bullet["attr"]}</span> 
+                <s>{bullet["old"]}</s>              
+                {#if bullet["new"] != "" && bullet["old"] != ""}
                 <Icon name="arrow-right" /> 
-                <span class="red">12</span>
+                {/if}
+                {#if parseFloat(bullet["old"]) < parseFloat(bullet["new"]) && !attr_flip.includes(bullet["attr"])}
+                <span class="green">{bullet["new"]}</span>
+                {:else if bullet["new"] != "" && bullet["old"] != ""}
+                <span class="red">{bullet["new"]}</span>
+                {:else}
+                <span>{bullet["new"]}</span>
+                {/if}
             </p>
-            <p>
-                <span class="bullet">Mana cost</span> 
-                <s>80</s>
-                <Icon name="arrow-right" /> 
-                <span class="red">100</span>
-            </p>
+            {/each}
         </div>
-        <div class="sub-note pad">
-            
-            <img src="divine-judgement.png" alt="" class="char-icon"/>
-            <h3>Divine Judgement</h3>
-            <p>                        
-                <span class="bullet">PERCENT DAMAGE</span> 
-                <s>20/22.5/25/27.5/30%</s>         
-                <Icon name="arrow-right" /> 
-                <span class="green">25/27.5/30/32.5/35%</span> of current HP
-            </p>
-            
-        </div>
+        {/each}
     </div>
-    <div>
-        <div class="image-head">
-            <img src="nuwa.png" alt="" class="char-icon"/>
-            <h2>Nu Wa</h2>
-            <p class="quote" class:shown={quote_showing}>She needs to be OP at least one patch.</p>
-        
-        </div>    
-        <div class="sub-note pad">
-            
-            <img src="shining_metal.png" alt="" class="char-icon"/>
-            <h3>Shining Metal</h3>
-            <p>     
-                <span class="bullet">Stun Duration</span>   
-                <s>1.1/1.2/1.3/1.4/1.5s</s>         
-                <Icon name="arrow-right" /> 
-                <span class="green">1.2/1.4/1.6/1.8/2.0s</span>
-            </p>
-            
-        </div>
-        <div class="sub-note pad">
-            
-            <img src="fire_shards.png" alt="" class="char-icon"/>
-            <h3>Clay Soldiers</h3>
-            <p>
-                <span class="bullet">Cooldown </span>
-                <s>100</s>
-                <Icon name="arrow-right" /> 
-                <span class="red">110</span>
-            </p>
-        </div>
-    </div>
+    {/each}
+    
 </section>
 <h5 id="items-head">Items</h5>
 <section id="items">
+    {#each items as item}
     <div>
         <div class="image-head">
-            <img src="stonecutting.png" alt="" class="char-icon"/>
-            <h2>Stone Cutting Sword</h2>
-            
+            <img src="items/{item["item"]}.png" alt="" class="char-icon"/>
+            <h2>{unslug(item["item"])}</h2>
+            <p class="quote" class:shown={quote_showing}>{item["quote"]}</p>   
         </div>    
+        {#each item["bullets"] as bullet}
         <div class="sub-note">
             <p>
-                <span class="bullet">Prot Debuff</span> 
-                <s>12</s>
+                {#if bullet["old"] == ""}
+                <span class="tag new">new</span>
+                {/if}
+                {#if bullet["new"] == ""}
+                <span class="tag removed">removed</span>
+                {/if}
+                <span class="bullet">{bullet["attr"]}</span> 
+                <s>{bullet["old"]}</s>                
+                {#if bullet["new"] != "" && bullet["old"] != ""}
                 <Icon name="arrow-right" /> 
-                <span class="red">10</span>
+                {/if}
+                {#if parseFloat(bullet["old"]) < parseFloat(bullet["new"]) && !attr_flip.includes(bullet["attr"])}
+                <span class="green">{bullet["new"]}</span>
+                {:else if bullet["new"] != "" && bullet["old"] != ""}
+                <span class="red">{bullet["new"]}</span>
+                {:else}
+                <span>{bullet["new"]}</span>
+                {/if}
             </p>
         </div>
+        {/each}
     </div>
-    <div>
-        <div class="image-head">
-            <img src="hydras.png" alt="" class="char-icon"/>
-            <h2>Hydra's Lament</h2>
-            
-        </div>    
-        <div class="sub-note">
-            <p>
-                <span class="bullet">Bonus Damage</span>
-                <s>40%</s>
-                <Icon name="arrow-right" /> 
-                <span class="red">10%</span>
-            </p>
-        </div>
-        <div class="sub-note">
-            <span class="tag">NEW</span>
-            <p>
-                <span class="bullet">CRIT MACHINE</span>
-                <span> After every ability cast, your next AA is a guaranteed crit.</span>
-    
-            </p>
-        </div>
-    </div>
+    {/each}
 </section>
 
 <style>
@@ -160,12 +208,12 @@
         position:absolute;
         left:0;
         padding-top:200px;
-        transform: translateX(-110%);
+        transform: translateX(-200%);
         height:100%;
     }
     .sidebar.right{        
-        transform: translateX(100%);
-        padding-top:205px;
+        transform: translateX(200%);
+        padding-top:200px;
         right:0;
         left:auto;
     }
@@ -174,10 +222,6 @@
         top:50px;
     }
 
-    .sidebar ul:first-child a{
-        font-size: 20px;
-        color:#888;
-    }
 
     .sidebar ul{
         padding-bottom:30px;
@@ -186,6 +230,14 @@
     .sidebar li{
         text-align:right;
         padding-bottom:10px;
+    }
+
+    .sidebar:not(.right) ul a{
+        font-size: 20px;
+    }
+
+    .sidebar.right li{
+        text-align: left;
     }
 
     .sidebar a{
@@ -303,7 +355,6 @@
 
     .sub-note{
         margin-left:80px;
-        position:relative;
     }
 
     .sub-note img{
@@ -315,11 +366,14 @@
     }
 
     .sub-note > h3{
-        font-size:20px;
+        font-size:22px;
         font-weight:bold;
+        padding-top:4px;
+        padding-bottom:4px;
     }
 
     .sub-note p{
+        position:relative;
     }
 
     p span{
@@ -338,10 +392,12 @@
 
     p span.green{
         background:var(--highlight-green);
+        margin:auto 5px auto 5px;
     }
 
     p span.red{
         background:var(--highlight-red);
+        margin:auto 5px auto 5px;
     }
 
     p s{
@@ -354,18 +410,25 @@
 
 
     .tag{
-        background-color: rgb(78, 166, 78);
         padding:3px 3px 3px 5px;
         font-size:0.5rem;
+        text-transform: uppercase;
         font-weight:bold;
         color:#fff;
         letter-spacing: 1.5px;
         text-align: center;
         position:absolute;
         left:-16px;
-        top: 50%;
+        top: 57%;
         transform: translateX(-100%) translateY(-50%);
     }
 
+    .new{
+        background-color: rgb(78, 166, 78);
+    }
+
+    .removed{
+        background-color: rgb(255, 58, 58);
+    }
 
 </style>

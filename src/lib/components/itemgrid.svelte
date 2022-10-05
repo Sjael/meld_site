@@ -1,5 +1,5 @@
 <script>
-    import {items} from "../../stores/itemstore";
+    import {items_list} from "../../stores/itemstore";
     import { onMount } from "svelte";
     import Itemtile from "./itemtile.svelte";
     import Icon from "./icons.svelte"
@@ -11,9 +11,9 @@
     $: {
         if (searchterm){
             console.log(searchterm);
-            filteredItems = $items.filter(item => item.name.toLowerCase().includes(searchterm.toLowerCase()));
+            filteredItems = $items_list.filter(item => item.name.toLowerCase().includes(searchterm.toLowerCase()));
         }else{
-            filteredItems = [...$items];
+            filteredItems = [...$items_list];
         }
     }
 
@@ -34,12 +34,12 @@
     }
 
     onMount(async () => {
-        console.log($items);
+        console.log($items_list);
         fetch("https://meldbackend-production.up.railway.app/")
         .then(response => response.json())
         .then(data => {
             console.log(data);
-            items.set(data);
+            items_list.set(data);
             }).catch(error => {
                 console.log(error);
                 return [];

@@ -1,6 +1,6 @@
 import {writable} from "svelte/store";
 
-export const items = writable([]);
+export const items_list = writable([]);
 
 var tempitems = {
     "results": [
@@ -31,6 +31,6 @@ const fetchitems = async() => {
             desc: data.description,
         }
     });
-    items.set(loadeditems);
+    items_list.set(loadeditems);
 }
 fetchitems();

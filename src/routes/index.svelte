@@ -2,7 +2,7 @@
 	export const prerender = true;
 </script>
 <script>
-    import {items} from "../stores/itemstore";
+    import {items_list} from "../stores/itemstore";
     import Itemgrid from "$lib/components/itemgrid.svelte";
     import Itemtile from "$lib/components/itemtile.svelte";
     import Icon from "$lib/components/icons.svelte"
@@ -60,17 +60,4 @@
         margin-bottom:36px;
     }
 
-    .tooltipthing{
-        position:absolute;
-        pointer-events: none;
-    }
-
-    .tooltipthing img{
-        position:absolute;
-        left: 0;
-        top:0;
-        height: 64px;
-        width: 64px;
-        transform: translate(-110%, 0%)
-    }
 </style>
