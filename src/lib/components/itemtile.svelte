@@ -11,7 +11,7 @@
 </script>
 
 <div class="m-3 shadow-sm hover:shadow-lg duration-200 border-black border" on:mouseenter={() => handleHover(item)} on:mousemove on:mouseleave>
-    <img src="{item.image}.png" alt={item.name}/>
+    <img src="items/{item.image}.png" alt={item.name}/>
 </div>
 
 <style>

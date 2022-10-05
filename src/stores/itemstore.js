@@ -7,13 +7,13 @@ var tempitems = {
         {
             "name" : "Revenge of Sabon",
             "id" : 3401,
-            "image" : "sabi",
+            "image" : "sabons_revenge",
             "description" : "I'm gonna make this item so OP"
         },
         {
             "name" : "The Crusher",
             "id" : 3201,
-            "image" : "TheCrusher",
+            "image" : "the_crusher",
             "description" : "+35 Physical Penetration"
         }
     ]
