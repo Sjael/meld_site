@@ -42,7 +42,7 @@ body::before {
 		var(--pure-white) 0%,
 		rgba(255, 255, 255, 0) 100%
 	);
-	opacity: 0.05;
+	opacity: 0.03;
 }
 
 #svelte {

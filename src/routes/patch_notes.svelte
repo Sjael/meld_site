@@ -1,9 +1,12 @@
 <script>
-    import Icon from "$lib/components/icons.svelte"
+    import Icon from "$lib/components/icons.svelte";
+    import { onMount } from 'svelte';
+    import { page } from '$app/stores';
 
+
+    console.log($page.url.pathname);
     let quote_showing = false;
-    const non_cap_words = ['and', 'or', 'the', 'of']
-    
+    const non_cap_words = ['and', 'or', 'the', 'of'];
     function unslug(slug){
         slug = slug.replaceAll('_', ' ');
         slug = slug.replaceAll('-', ' ');
@@ -19,9 +22,7 @@
         return text;
     }
 
-    var attr_flip = [
-        "cooldown", "mana cost"
-    ];
+    var attr_flip = ["cooldown", "mana cost"];
 
     var characters = [{
         "char": "nemesis",
@@ -258,6 +259,7 @@
         font-size:12px;
         text-transform:uppercase;
         letter-spacing:1px;
+        color:#888;
     }
 
     #hide_quotes:hover{
@@ -401,7 +403,7 @@
     }
 
     p s{
-        color:#777;
+        color:#888;
         font-weight:bold;
         margin: auto 5px auto 7px;
     }
@@ -429,6 +431,21 @@
 
     .removed{
         background-color: rgb(255, 58, 58);
+    }
+
+
+    
+    :global(body.dark-mode) .image-head > h2,
+    :global(body.dark-mode) p span,
+    :global(body.dark-mode) h1,
+    :global(body.dark-mode) p,
+    :global(body.dark-mode) .sub-note > h3{
+        color:#fff;
+    }
+    
+    :global(body.dark-mode) .tag,
+    :global(body.dark-mode) #hide_quotes{
+        color:#000;
     }
 
 </style>
