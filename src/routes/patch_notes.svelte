@@ -78,7 +78,7 @@
             }]      
     },{
         "item": "hydras_lament",
-        "quote": "plz",
+        "quote": "plz meld",
         "bullets" :[{
             "attr": "bonus damage",
             "old": "40%",
