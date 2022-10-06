@@ -1,9 +1,11 @@
 <script>
     function toggle() {
-    window.document.body.classList.toggle('dark-mode')
+    window.document.body.classList.toggle('dark-mode');
+
 }
+    export let new_class;
 </script>
-<button on:click={toggle}>
+<button on:click={toggle} class="{new_class}">
     <slot/>
 </button>
 <style>
@@ -23,4 +25,9 @@
         background-color: #222226;
         color: white;
     }
+
+	.sharp{
+		float:right;
+		border-radius:0px;
+	}
 </style>
