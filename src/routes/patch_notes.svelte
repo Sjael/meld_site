@@ -87,7 +87,7 @@
             },{
             "attr": "crit machine",
             "old": "",
-            "new": "After casting an ability, your next auto attack is a guarenteed critical strike."
+            "new": "After casting an ability, your next auto attack is a guaranteed critical strike."
             }]                 
     }];
 
@@ -364,7 +364,6 @@
         height:40px;
         left: -56px;
         position: absolute;
-        border:1px solid #d0b760;
     }
 
     .sub-note > h3{
@@ -430,7 +429,7 @@
     }
 
     .removed{
-        background-color: rgb(255, 58, 58);
+        background-color: rgb(233, 47, 47);
     }
 
 
