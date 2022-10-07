@@ -1,4 +1,5 @@
 {
+    "name": "Into Cinder",
     "chars": [{
         "char": "nemesis",
         "quote": "This goddess has continued to be a top Jungler even with a nerf to her Ultimate earlier this year. Divine Judgment is especially strong in a world where gods have higher base HP, and her pace in the Jungle has remained at the top of the pack. Both of these changes should decrease her overall damage output and slow her down to be a closer match to the rest of the class.",
@@ -43,6 +44,21 @@
                 "new": "110"
                 }]
             }]    
+    },{
+        "char": "yu_huang",
+        "quote": "She needs to be OP at least one patch.",
+        "changes": [{
+            "ability": "dueling_dragons",
+            "bullets" :[{
+                "attr": "push magic scaling",
+                "old": "60%",
+                "new": "50%"
+                },{
+                "attr": "mana cost",
+                "old": "40",
+                "new": "70"
+                }]
+            }]   
     }],
     "items":[{
         "item": "stone_cutting_sword",

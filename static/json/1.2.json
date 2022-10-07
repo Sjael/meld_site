@@ -1,0 +1,77 @@
+{
+    "name" : "Traning Ground",
+    "chars": [{
+        "char": "yu_huang",
+        "quote": "",
+        "changes": [{
+            "ability": "dueling_dragons",
+            "bullets" :[{
+                "attr": "push magic scaling",
+                "old": "60",
+                "new": "50"
+                }]
+            }]       
+    },{
+    "char": "cabrakan",
+    "quote": "",
+    "changes": [{
+        "ability": "refraction_shield",
+        "bullets" :[{
+            "attr": "base damage",
+            "old": "100/155/210/265/320",
+            "new": "80/135/190/245/300"
+            }]
+        },{
+            "ability": "tremors",
+            "bullets" :[{
+                "attr": "base damage",
+                "old": "22/32/42/52/62",
+                "new": "18/28/38/48/58"
+                }]
+            }]  
+    },{
+        "char": "king_arthur",
+        "quote": "",
+        "changes": [{
+            "ability": "excaliburs_wrath",
+            "bullets" :[{
+                "attr": "max hp damage",
+                "old": "5/6.5/8/9.5/11%",
+                "new": "5/6/7/8/9% on landing"
+                }]
+            }]  
+        }],
+    "items":[{
+        "item": "bluestone_brooch",
+        "quote": "This shit was too bussin' fr",
+        "bullets" :[{
+            "attr": "bonus damage scaling",
+            "old": "7.5%",
+            "new": "6%"
+            }]      
+    },{
+        "item": "gladiators_shield",
+        "quote": "This shit was too bussin' fr",
+        "bullets" :[{
+            "attr": "bonus damage scaling",
+            "old": "35%",
+            "new": "30%"
+            }]      
+    },{
+        "item": "manticores_spike",
+        "quote": "This shit was too bussin' fr",
+        "bullets" :[{
+            "attr": "max hp damage",
+            "old": "4%/8%",
+            "new": "3%/6%"
+            }]      
+    },{
+        "item": "transcendence",
+        "quote": "This shit was too bussin' fr",
+        "bullets" :[{
+            "attr": "physical power",
+            "old": "40",
+            "new": "35"
+            }]      
+    }]
+}

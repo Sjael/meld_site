@@ -15,37 +15,12 @@
     import Icon from "$lib/components/icons.svelte";
     import { onMount } from 'svelte';
     import { page } from '$app/stores';
+    import {patches} from '$lib/stores/patch_list';
     import {unslug, attr_flip} from '$lib/utils'
     let quote_showing = false;
 
     
     export let loading_patch;
-    let patch_list = ['1.3', '1.2', '1.0', '1.02', '1.1'];
-    patch_list.sort().reverse();
-
-    let version = '1.3';
-    if ($page.url.searchParams.has('v')){
-        if (patch_list.includes($page.url.searchParams.get('v'))){
-            version = $page.url.searchParams.get('v');
-        }
-    }
-    console.log(version);
-
-    let notes = {};
-    onMount(async () => {
-		var response = await fetch('/json/'+version+'.json');
-		var result = await response.json();
-        console.log(result);
-		return result;
-    });
-    console.log(notes);
-    const get_patch = async (version) => {
-		var response = await fetch(version);
-		var result = await response.json();
-        console.log(result);
-		return result;
-	}
-
 
 </script>
 
@@ -55,8 +30,8 @@
 <div class="sidebar">
     <div class="sticky">
         <ul>
-            {#each patch_list as patch}
-            <li><a href="/patch_notes?v={patch}">{patch}</a></li>
+            {#each $patches as patch}
+            <li><a href="/notes/{patch}">{patch}</a></li>
             {/each}
         </ul>
        </div>
@@ -71,7 +46,7 @@
     </div>
 </div>
 
-<h1>1.3 Into Cinder</h1>
+<h1>{loading_patch["name"]}</h1>
 <div class="timeline"></div>
 
 <div class="explanation pad">

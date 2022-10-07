@@ -1,0 +1,34 @@
+{
+    "chars": [{
+        "char": "nemesis",
+        "quote": "",
+        "changes": [{
+            "ability": "slice_and_dice",
+            "bullets" :[{
+                "attr": "cooldown",
+                "old": "11",
+                "new": "12"
+                },{
+                "attr": "mana cost",
+                "old": "80",
+                "new": "100"
+                }]
+            },{
+            "ability": "divine_judgement",
+            "bullets" :[{
+                "attr": "percent damage",
+                "old": "20/22.5/25/27.5/30%",
+                "new": "25/27.5/30/32.5/35% of current HP"
+                }]
+            }]       
+    }],
+    "items":[{
+        "item": "stone_cutting_sword",
+        "quote": "This shit was too bussin' fr",
+        "bullets" :[{
+            "attr": "prot debuff",
+            "old": "12",
+            "new": "10"
+            }]      
+    }]
+}

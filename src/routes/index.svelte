@@ -2,7 +2,7 @@
 	export const prerender = true;
 </script>
 <script>
-    import {items_list} from "../stores/itemstore";
+    import {items_list} from "$lib/stores/itemstore";
     import Itemgrid from "$lib/components/itemgrid.svelte";
     import Itemtile from "$lib/components/itemtile.svelte";
     import Icon from "$lib/components/icons.svelte"

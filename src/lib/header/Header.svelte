@@ -3,6 +3,10 @@
 	import logo from './logo.svg';
 	import Button from '$lib/components/button.svelte';
     import Icon from "$lib/components/icons.svelte";
+    import {patches} from '$lib/stores/patch_list';
+
+	let latest_patch = $patches;
+	console.log(latest_patch);
 </script>
 
 <header>
@@ -18,8 +22,8 @@
 		</svg>
 		<ul>
 			<li class:active={$page.url.pathname === '/'}><a sveltekit:prefetch href="/">Home</a></li>
-			<li class:active={$page.url.pathname === '/patch_notes'}>
-				<a sveltekit:prefetch href="/patch_notes">Update Notes</a>
+			<li class:active={$page.url.pathname === '/notes/'+latest_patch[0]}>
+				<a sveltekit:prefetch href="/notes/{latest_patch[0]}">Update Notes</a>
 			</li>
 			<li class:active={$page.url.pathname === '/todos'}>
 				<a sveltekit:prefetch href="/todos">Todos</a>

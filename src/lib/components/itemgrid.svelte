@@ -1,5 +1,5 @@
 <script>
-    import {items_list} from "../../stores/itemstore";
+    import {items_list} from "$lib/stores/itemstore";
     import { onMount } from "svelte";
     import Itemtile from "./itemtile.svelte";
     import Icon from "./icons.svelte"
