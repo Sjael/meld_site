@@ -1,3 +1,16 @@
+<script context="module">
+    export const load = async ({params, fetch}) => {
+        const ver = params.id;
+        console.log(ver);
+		var response = await fetch('/json/'+ver+'.json');
+		var loading_patch = await response.json();
+        return {
+            props: {
+                loading_patch,
+            }
+        };
+    }
+</script>
 <script>
     import Icon from "$lib/components/icons.svelte";
     import { onMount } from 'svelte';
@@ -6,7 +19,7 @@
     let quote_showing = false;
 
     
-
+    export let loading_patch;
     let patch_list = ['1.3', '1.2', '1.0', '1.02', '1.1'];
     patch_list.sort().reverse();
 
@@ -32,7 +45,6 @@
         console.log(result);
 		return result;
 	}
-    let loading_patch = get_patch('/json/'+version+'.json');
 
 
 </script>
@@ -72,14 +84,14 @@
         {#each selected_patch.chars as char}
         <div>
             <div class="image-head">
-                <img src="chars/{char["char"]}.png" alt="" class="char-icon"/>
+                <img src="/chars/{char["char"]}.png" alt="" class="char-icon"/>
                 <h2>{unslug(char["char"])}</h2>
                 <p class="quote" class:shown={quote_showing}>{char["quote"]}</p>   
             </div>    
             {#each char["changes"] as change}
             <div class="sub-note pad">
 
-                <img src="chars/{change["ability"]}.png" alt="" class="char-icon"/>
+                <img src="/chars/{change["ability"]}.png" alt="" class="char-icon"/>
                 <h3>{unslug(change["ability"])}</h3>
                 {#each change["bullets"] as bullet}
                 <p>
@@ -118,7 +130,7 @@
         {#each selected_patch.items as item}
             <div>
                 <div class="image-head">
-                    <img src="items/{item["item"]}.png" alt="" class="char-icon"/>
+                    <img src="/items/{item["item"]}.png" alt="" class="char-icon"/>
                     <h2>{unslug(item["item"])}</h2>
                     <p class="quote" class:shown={quote_showing}>{item["quote"]}</p>   
                 </div>    

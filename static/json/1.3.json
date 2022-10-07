@@ -1,0 +1,68 @@
+{
+    "chars": [{
+        "char": "nemesis",
+        "quote": "This goddess has continued to be a top Jungler even with a nerf to her Ultimate earlier this year. Divine Judgment is especially strong in a world where gods have higher base HP, and her pace in the Jungle has remained at the top of the pack. Both of these changes should decrease her overall damage output and slow her down to be a closer match to the rest of the class.",
+        "changes": [{
+            "ability": "slice_and_dice",
+            "bullets" :[{
+                "attr": "cooldown",
+                "old": "11",
+                "new": "12"
+                },{
+                "attr": "mana cost",
+                "old": "80",
+                "new": "100"
+                }]
+            },{
+            "ability": "divine_judgement",
+            "bullets" :[{
+                "attr": "percent damage",
+                "old": "20/22.5/25/27.5/30%",
+                "new": "25/27.5/30/32.5/35% of current HP"
+                }]
+            }]       
+    },{
+        "char": "nu_wa",
+        "quote": "She needs to be OP at least one patch.",
+        "changes": [{
+            "ability": "shining_metal",
+            "bullets" :[{
+                "attr": "stun duration",
+                "old": "1.1/1.2/1.3/1.4/1.5s",
+                "new": "1.2/1.4/1.6/1.8/2.0s"
+                },{
+                "attr": "mana cost",
+                "old": "40",
+                "new": "70"
+                }]
+            },{
+            "ability": "fire_shards",
+            "bullets" :[{
+                "attr": "cooldown",
+                "old": "100",
+                "new": "110"
+                }]
+            }]    
+    }],
+    "items":[{
+        "item": "stone_cutting_sword",
+        "quote": "This shit was too bussin' fr",
+        "bullets" :[{
+            "attr": "prot debuff",
+            "old": "12",
+            "new": "10"
+            }]      
+    },{
+        "item": "hydras_lament",
+        "quote": "plz meld",
+        "bullets" :[{
+            "attr": "bonus damage",
+            "old": "40%",
+            "new": ""
+            },{
+            "attr": "crit machine",
+            "old": "",
+            "new": "After casting an ability, your next auto attack is a guaranteed critical strike."
+            }]                 
+    }]
+}
