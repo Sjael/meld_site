@@ -15,7 +15,7 @@
 </svelte:head>
 <div class="wrap">
     <figure class="center-figure">
-        <img src="logo-export.png" alt="" style=""/>
+        <img src="lotus_stone.png" alt="" style=""/>
     </figure>
     <figure class="center-figure">
         <img src="map_shot1.png" alt="" style="max-height:300px;border-radius:6px;"/>

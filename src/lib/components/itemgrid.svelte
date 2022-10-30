@@ -16,7 +16,11 @@
             filteredItems = [...$items_list];
         }
     }
-
+    let test_jsonb = {
+        "phys_power" : 44,
+        "cost" : 2200,
+        "phys_pen" : 30,
+    }
 
     let hovering = false;
     let hovereditem;
@@ -24,7 +28,8 @@
 	const leave = () => (hovering = false);
 
     function handleMousemove(event) {
-		m.x = event.pageX;
+        let main_offset = document.getElementsByTagName("main")[0].offsetLeft; // It has position Relative
+		m.x = event.pageX - main_offset;
 		m.y = event.pageY;
 	}
     const hover_item = (e) => {
@@ -33,9 +38,13 @@
         hovereditem = e.detail;
     }
 
+    let conn;
+    conn = "https://meldbackend-production.up.railway.app/";
+    conn = "http://localhost:4000/";
+
     onMount(async () => {
         console.log($items_list);
-        fetch("https://meldbackend-production.up.railway.app/")
+        fetch(conn)
         .then(response => response.json())
         .then(data => {
             console.log(data);
@@ -63,7 +72,8 @@
 <div class="tooltipthing" style="top:{m.y}px;left:{m.x}px;">
     <div class="bg-gray-900 py-3 px-4 mt-4 ml-8 relative shadow-2xl">
         <h1 class="text-xl text-white">{hovereditem.name}</h1>
-        <p class="text-xs text-white">{hovereditem.desc}</p>
+        <p class="text-xs text-white">{hovereditem.id}</p>
+        <p class="text-xs text-white">{hovereditem.info.cost}</p>
         <!-- <img src="{hovereditem.image}.png"> -->
     </div>
 </div>
